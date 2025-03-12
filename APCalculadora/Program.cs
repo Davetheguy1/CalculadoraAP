@@ -4,8 +4,8 @@ namespace APCalculadora
 {
     internal class Program
     {
-       
 
+        static List<string> opHis = new List<string>();
        
     
         static void Sum()
@@ -17,8 +17,10 @@ namespace APCalculadora
             double secondNumber = double.Parse(Console.ReadLine());
 
             double result = firstNumber + secondNumber;
+            string operation = $"{firstNumber} + {secondNumber} = {result:F2}";
+            opHis.Add(operation);
             Console.WriteLine($"\nResultado = {result.ToString("F2")}\n");
-            Console.WriteLine("\n1.Realisar Outra Operação de Soma\n2.Voltar ao Menu Principal\n");
+            Console.WriteLine("\n1.Realizar Outra Operação de Soma\n2.Voltar ao Menu Principal\n");
             
             string answer = Console.ReadLine();
             if (answer == "1")
@@ -49,8 +51,10 @@ namespace APCalculadora
             double secondNumber = double.Parse(Console.ReadLine());
 
             double result = firstNumber - secondNumber;
+            string operation = $"{firstNumber} + {secondNumber} = {result:F2}";
+            opHis.Add(operation);
             Console.WriteLine($"\nResultado = {result.ToString("F2")}");
-            Console.WriteLine("1.\nRealisar Outra Operação de Subtração\n2.Voltar ao Menu Principal\n");
+            Console.WriteLine("1.\nRealizar Outra Operação de Subtração\n2.Voltar ao Menu Principal\n");
             string answer = Console.ReadLine();
             if (answer == "1")
             {
@@ -79,8 +83,10 @@ namespace APCalculadora
             double secondNumber = double.Parse(Console.ReadLine());
 
             double result = firstNumber * secondNumber;
+            string operation = $"{firstNumber} + {secondNumber} = {result:F2}";
+            opHis.Add(operation);
             Console.WriteLine($"\nResultado = {result.ToString("F2")}");
-            Console.WriteLine("\n1.Realisar Outra Operação de Multipliação\n2.Voltar ao Menu Principal\n");
+            Console.WriteLine("\n1.Realizar Outra Operação de Multipliação\n2.Voltar ao Menu Principal\n");
             string answer = Console.ReadLine();
             if (answer == "1")
             {
@@ -115,8 +121,10 @@ namespace APCalculadora
             }
 
             double result = firstNumber / secondNumber;
+            string operation = $"{firstNumber} + {secondNumber} = {result:F2}";
+            opHis.Add(operation);
             Console.WriteLine($"\nResultado = {result.ToString("F2")}\n");
-            Console.WriteLine("1.\nRealisar Outra Operação de Divisão\n2.Voltar ao Menu Principal\n");
+            Console.WriteLine("1.\nRealizar Outra Operação de Divisão\n2.Voltar ao Menu Principal\n");
             string answer = Console.ReadLine();
             if (answer == "1")
             {
@@ -155,8 +163,28 @@ namespace APCalculadora
 
         }
 
+        static void ShowHis()
+        {
+            Console.Clear();
+            Console.WriteLine("Histórico de Operações:\n");
 
-        
+            if (opHis.Count == 0)
+            {
+                Console.WriteLine("Nenhuma Operação Registrada.");
+            }
+            else
+            {
+                foreach (string operation in opHis)
+                {
+                    Console.WriteLine(operation);
+                }
+            }
+
+            Console.WriteLine("\nPressione Enter para voltar ao Menu Principal");
+            Console.ReadLine();
+            MainProgram();
+        }
+
         static void MainProgram()
         {
             Console.Clear();
@@ -187,7 +215,7 @@ namespace APCalculadora
             }
             else if (answer == "6")
             {
-                Console.WriteLine("Not Implemented Yet");
+                ShowHis();
             }
             else if (answer == "7")
             {
@@ -207,10 +235,6 @@ namespace APCalculadora
         {
             MainProgram();
             
-
-            
-
-
         }
     }
 }
