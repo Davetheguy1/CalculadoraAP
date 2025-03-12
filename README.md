@@ -29,6 +29,8 @@ Agradecimentos à
 
 Tiago Santini, da Academia do Programador (https://github.com/tiagosantini)
 
+Alexandre Rech, da Academia do Programador (https://github.com/alexandre-rech-lages)
+
 Bro Code, no Youtube (https://www.youtube.com/@BroCodez)*
 
 *C# Lists (https://www.youtube.com/watch?v=vQzREQUhGSA)
